@@ -44,7 +44,7 @@ interface SiteConfig {
 export const siteConfig: SiteConfig = {
   // サイト基本情報
   name: 'Portfolio',
-  title: 'Portfolio | Web Developer',
+  title: 'My Dev Journey',
   description:
     'フロントエンド開発を中心に、モダンな技術を活用したWeb開発に取り組んでいます。',
 
