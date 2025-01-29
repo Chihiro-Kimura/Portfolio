@@ -1,32 +1,47 @@
-"use client";
+'use client';
 
-import { motion } from "framer-motion";
-import { Code2, Github, Linkedin, Twitter, Zap, Users, Briefcase } from "lucide-react";
-import { Button } from "@/components/ui/button";
-import { Badge } from "@/components/ui/badge";
-import { Separator } from "@/components/ui/separator";
+import { motion } from 'framer-motion';
+import {
+  Code2,
+  Github,
+  Linkedin,
+  Twitter,
+  Zap,
+  Users,
+  Briefcase,
+} from 'lucide-react';
+import { Button } from '@/components/ui/button';
+import { Badge } from '@/components/ui/badge';
+import { Separator } from '@/components/ui/separator';
+import Image from 'next/image';
+import { siteConfig } from '@/app/config/site';
 
 const features = [
   {
-    icon: <Zap className="h-auto w-5" />,
-    title: "フルスタック開発",
-    description: "フロントエンドからバックエンドまで、幅広い技術スタックを活用",
+    icon: <Code2 className="h-auto w-5" />,
+    title: 'スキルセット',
+    description:
+      'React/Next.jsを中心としたモダンな技術スタックを学習しています',
   },
   {
     icon: <Users className="h-auto w-5" />,
-    title: "チーム協働",
-    description: "アジャイル開発とチームワークを重視した開発スタイル",
+    title: '成長意欲',
+    description:
+      'チーム開発での経験を積み、技術力を高めていきたいと考えています',
   },
   {
-    icon: <Briefcase className="h-auto w-5" />,
-    title: "実績多数",
-    description: "大規模プロジェクトの開発経験と、多様な業界での実績",
+    icon: <Zap className="h-auto w-5" />,
+    title: '実践的な経験',
+    description: '個人開発を通じて、実務で活かせるスキルを身につけています',
   },
 ];
 
 export default function Hero() {
   return (
-    <section className="min-h-screen bg-gradient-to-b from-background to-secondary/20">
+    <section
+      id="hero"
+      className="min-h-screen bg-gradient-to-b from-background to-secondary/20"
+    >
       <div className="container px-4 mx-auto pt-20">
         <div className="mb-20 flex flex-col items-center gap-6 text-center">
           <motion.div
@@ -35,7 +50,7 @@ export default function Hero() {
             transition={{ delay: 0.2 }}
           >
             <Badge variant="outline" className="mb-4">
-              エンジニア採用をお考えの方へ
+              ポートフォリオサイト
             </Badge>
           </motion.div>
           <motion.h1
@@ -44,9 +59,7 @@ export default function Hero() {
             transition={{ delay: 0.3 }}
             className="text-4xl md:text-6xl font-bold mb-6"
           >
-            エンジニアのチームメンバーを
-            <br />
-            探していますか？
+            {siteConfig.title}
           </motion.h1>
           <motion.p
             initial={{ opacity: 0 }}
@@ -54,9 +67,7 @@ export default function Hero() {
             transition={{ delay: 0.4 }}
             className="text-xl md:text-2xl text-muted-foreground mb-8 max-w-2xl"
           >
-            フルスタック開発者として、最新技術を活用した
-            <br />
-            高品質なプロダクト開発に貢献します
+            {siteConfig.description}
           </motion.p>
           <motion.div
             initial={{ opacity: 0 }}
@@ -64,11 +75,26 @@ export default function Hero() {
             transition={{ delay: 0.5 }}
             className="flex flex-wrap justify-center gap-4 mb-12"
           >
-            <Button size="lg" className="gap-2">
+            <Button
+              size="lg"
+              className="gap-2"
+              onClick={() => {
+                const projectsSection = document.getElementById('projects');
+                projectsSection?.scrollIntoView({ behavior: 'smooth' });
+              }}
+            >
               <Briefcase className="w-4 h-4" />
               プロジェクトを見る
             </Button>
-            <Button variant="outline" size="lg" className="gap-2">
+            <Button
+              variant="outline"
+              size="lg"
+              className="gap-2"
+              onClick={() => {
+                const contactSection = document.getElementById('contact');
+                contactSection?.scrollIntoView({ behavior: 'smooth' });
+              }}
+            >
               <Users className="w-4 h-4" />
               お問い合わせ
             </Button>
@@ -79,11 +105,12 @@ export default function Hero() {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.6 }}
-          className="relative mx-auto max-w-screen-lg mb-20"
+          className="relative mx-auto max-w-screen-lg mb-20 h-[500px]"
         >
-          <img
+          <Image
             src="https://images.unsplash.com/photo-1605379399642-870262d3d051?ixlib=rb-1.2.1&auto=format&fit=crop&w=2000&q=80"
             alt="Development Environment"
+            fill
             className="aspect-video max-h-[500px] w-full rounded-xl object-cover"
           />
           <div className="absolute inset-0 bg-gradient-to-t from-background via-transparent to-transparent"></div>

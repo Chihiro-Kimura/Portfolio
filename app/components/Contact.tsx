@@ -1,15 +1,16 @@
-"use client";
+'use client';
 
-import { motion } from "framer-motion";
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-import { Input } from "@/components/ui/input";
-import { Textarea } from "@/components/ui/textarea";
-import { Button } from "@/components/ui/button";
-import { Mail, Phone, MapPin } from "lucide-react";
+import { motion } from 'framer-motion';
+import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
+import { Input } from '@/components/ui/input';
+import { Textarea } from '@/components/ui/textarea';
+import { Button } from '@/components/ui/button';
+import { Mail, Phone, MapPin, Github, Twitter, Linkedin } from 'lucide-react';
+import { siteConfig } from '@/app/config/site';
 
 export default function Contact() {
   return (
-    <section className="py-20 bg-secondary/20">
+    <section id="contact" className="py-20 bg-secondary/20">
       <div className="container px-4 mx-auto">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -44,7 +45,10 @@ export default function Contact() {
                     <Input placeholder="件名" />
                   </div>
                   <div>
-                    <Textarea placeholder="メッセージ" className="min-h-[150px]" />
+                    <Textarea
+                      placeholder="メッセージ"
+                      className="min-h-[150px]"
+                    />
                   </div>
                   <Button className="w-full">送信</Button>
                 </form>
@@ -64,7 +68,9 @@ export default function Contact() {
                   <Mail className="w-6 h-6 text-primary" />
                   <div>
                     <h3 className="font-semibold">Email</h3>
-                    <p className="text-muted-foreground">contact@example.com</p>
+                    <p className="text-muted-foreground">
+                      {siteConfig.contact.email}
+                    </p>
                   </div>
                 </div>
               </CardContent>
@@ -75,7 +81,9 @@ export default function Contact() {
                   <Phone className="w-6 h-6 text-primary" />
                   <div>
                     <h3 className="font-semibold">Phone</h3>
-                    <p className="text-muted-foreground">03-1234-5678</p>
+                    <p className="text-muted-foreground">
+                      {siteConfig.contact.phone}
+                    </p>
                   </div>
                 </div>
               </CardContent>
@@ -86,8 +94,37 @@ export default function Contact() {
                   <MapPin className="w-6 h-6 text-primary" />
                   <div>
                     <h3 className="font-semibold">Location</h3>
-                    <p className="text-muted-foreground">東京都渋谷区</p>
+                    <p className="text-muted-foreground">
+                      {siteConfig.contact.location}
+                    </p>
                   </div>
+                </div>
+              </CardContent>
+            </Card>
+            <Card>
+              <CardContent className="p-6">
+                <div className="flex items-center space-x-4">
+                  <a
+                    href={siteConfig.socialLinks.github}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    <Github className="w-6 h-6" />
+                  </a>
+                  <a
+                    href={siteConfig.socialLinks.twitter}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    <Twitter className="w-6 h-6" />
+                  </a>
+                  <a
+                    href={siteConfig.socialLinks.linkedin}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    <Linkedin className="w-6 h-6" />
+                  </a>
                 </div>
               </CardContent>
             </Card>
