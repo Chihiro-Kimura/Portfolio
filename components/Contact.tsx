@@ -6,7 +6,7 @@ import { Input } from '@/components/ui/input';
 import { Textarea } from '@/components/ui/textarea';
 import { Button } from '@/components/ui/button';
 import { Mail, Phone, MapPin, Github, Twitter, Linkedin } from 'lucide-react';
-import { siteConfig } from '@/app/config/site';
+import { siteConfig } from '@/config/site';
 
 export default function Contact() {
   return (

@@ -4,7 +4,7 @@ import { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import { Menu, X } from 'lucide-react';
 import { Button } from '@/components/ui/button';
-import { siteConfig } from '@/app/config/site';
+import { siteConfig } from '@/config/site';
 
 export default function Navigation() {
   const [isScrolled, setIsScrolled] = useState(false);

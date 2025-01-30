@@ -3,7 +3,7 @@
 import { motion } from 'framer-motion';
 import { Card, CardContent } from '@/components/ui/card';
 import Image from 'next/image';
-import { siteConfig } from '@/app/config/site';
+import { siteConfig } from '@/config/site';
 
 export default function About() {
   return (

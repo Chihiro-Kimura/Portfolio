@@ -11,7 +11,7 @@ import {
 import { Button } from '@/components/ui/button';
 import { Github, ExternalLink } from 'lucide-react';
 import Image from 'next/image';
-import { siteConfig } from '@/app/config/site';
+import { siteConfig } from '@/config/site';
 
 export default function Projects() {
   return (

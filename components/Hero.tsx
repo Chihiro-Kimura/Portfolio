@@ -14,7 +14,7 @@ import { Button } from '@/components/ui/button';
 import { Badge } from '@/components/ui/badge';
 import { Separator } from '@/components/ui/separator';
 import Image from 'next/image';
-import { siteConfig } from '@/app/config/site';
+import { siteConfig } from '@/config/site';
 
 const features = [
   {
