@@ -1,9 +1,9 @@
 interface Project {
-  title: string;
-  description: string;
-  image: string;
-  tags: string[];
-  github: string;
+  readonly title: string;
+  readonly description: string;
+  readonly image: string;
+  readonly tags: readonly string[];
+  readonly github: string;
   demo?: string;
 }
 
@@ -26,8 +26,8 @@ interface SocialLinks {
 }
 
 interface NavItem {
-  name: string;
-  href: string;
+  readonly name: string;
+  readonly href: string;
 }
 
 interface SiteConfig {
@@ -38,7 +38,8 @@ interface SiteConfig {
   socialLinks: SocialLinks;
   projects: Project[];
   about: About;
-  navItems: NavItem[];
+  navItems: readonly NavItem[];
+  introduction: readonly string[];
 }
 
 export const siteConfig: SiteConfig = {
@@ -70,7 +71,13 @@ export const siteConfig: SiteConfig = {
         'Next.js、Supabase、Stripeを統合したフルスタックECサイト。商品管理、カート機能、決済システムを実装し、モダンなショッピング体験を提供します。',
       image:
         'https://images.unsplash.com/photo-1557821552-17105176677c?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80',
-      tags: ['Next.js', 'React', 'Supabase', 'Stripe', 'TailwindCSS'],
+      tags: [
+        'Next.js',
+        'React',
+        'Supabase',
+        'Stripe',
+        'TailwindCSS',
+      ] as string[],
       github: 'https://github.com/yourusername/ec-site',
       demo: 'https://your-ec-site.vercel.app',
     },
@@ -79,7 +86,7 @@ export const siteConfig: SiteConfig = {
       description: 'React と TypeScript で開発したタスク管理アプリケーション',
       image:
         'https://images.unsplash.com/photo-1507925921958-8a62f3d1a50d?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80',
-      tags: ['React', 'TypeScript', 'Firebase'],
+      tags: ['React', 'TypeScript', 'Firebase'] as string[],
       github: 'https://github.com/yourusername/task-manager',
       demo: 'https://your-task-manager.vercel.app',
     },
@@ -88,7 +95,7 @@ export const siteConfig: SiteConfig = {
       description: 'Node.js と MongoDB を使用したSNSプラットフォーム',
       image:
         'https://images.unsplash.com/photo-1611162616305-c69b3fa7fbe0?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80',
-      tags: ['Node.js', 'MongoDB', 'Express'],
+      tags: ['Node.js', 'MongoDB', 'Express'] as string[],
       github: 'https://github.com/yourusername/sns-app',
       demo: 'https://your-sns-app.vercel.app',
     },
@@ -107,11 +114,11 @@ export const siteConfig: SiteConfig = {
         'Stripe',
         'NextAuth.js',
         'TailwindCSS',
-      ],
+      ] as string[],
       github: 'https://github.com/yourusername/blog-app',
       demo: 'https://post-writer-webapp-ten.vercel.app/',
     },
-  ],
+  ] as Project[],
 
   // 自己紹介
   about: {
@@ -121,7 +128,7 @@ export const siteConfig: SiteConfig = {
       '以前はコンビニエンスストアのマネージャーや金型製造業での経験があり、技術への興味からエンジニアへの転身を決意しました。',
       'フロントエンド開発を中心に、最新技術を活用したユーザーフレンドリーなアプリケーション開発に情熱を注いでいます。',
       '現在は個人プロジェクトを通じて実践的なスキルを磨いています。',
-    ],
+    ] as string[],
   },
 
   // ナビゲーションリンク
@@ -132,5 +139,11 @@ export const siteConfig: SiteConfig = {
     { name: 'Projects', href: '#projects' },
     { name: 'Tech Stack', href: '#tech-stack' },
     { name: 'Contact', href: '#contact' },
-  ],
+  ] as readonly NavItem[],
+
+  introduction: [
+    '以前はコンビニエンスストアのマネージャーや金型製造業での経験があり、技術への興味からエンジニアへの転身を決意しました。',
+    'フロントエンド開発を中心に、最新技術を活用したユーザーフレンドリーなアプリケーション開発に情熱を注いでいます。',
+    '現在は個人プロジェクトを通じて実践的なスキルを磨いています。',
+  ] as readonly string[],
 } as const;
