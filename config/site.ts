@@ -3,8 +3,8 @@ interface Project {
   readonly description: string;
   readonly image: string;
   readonly tags: readonly string[];
-  readonly github: string;
-  demo?: string;
+  readonly github?: string;
+  readonly demo?: string;
 }
 
 interface About {
@@ -66,43 +66,48 @@ export const siteConfig: SiteConfig = {
   // プロジェクト情報
   projects: [
     {
-      title: 'ECサイト',
+      title: 'ECサイト (開発予定)',
       description:
-        'Next.js、Supabase、Stripeを統合したフルスタックECサイト。商品管理、カート機能、決済システムを実装し、モダンなショッピング体験を提供します。',
+        '※ このプロジェクトは現在企画段階です。\n' +
+        'Next.js、Supabase、Stripeを活用したECサイトを開発予定です。',
       image:
-        'https://images.unsplash.com/photo-1557821552-17105176677c?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80',
-      tags: [
-        'Next.js',
-        'React',
-        'Supabase',
-        'Stripe',
-        'TailwindCSS',
-      ] as string[],
-      github: 'https://github.com/yourusername/ec-site',
-      demo: 'https://your-ec-site.vercel.app',
+        'https://images.unsplash.com/photo-1472851294608-062f824d29cc?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80',
+      tags: ['企画中'] as string[],
+      github: '#',
     },
     {
       title: 'タスク管理アプリ',
-      description: 'React と TypeScript で開発したタスク管理アプリケーション',
+      description: `Next.jsとFirebaseを活用した多機能タスク管理アプリケーション。
+        タスクの作成・編集・削除、優先度・期限設定、ステータス管理など基本機能に加え、
+        Googleアカウント認証、タスク共有、リマインダー機能を実装。
+        TypeScriptとTailwind CSS、shadcn/uiを用いたモダンなUI/UXを提供します。`,
       image:
         'https://images.unsplash.com/photo-1507925921958-8a62f3d1a50d?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80',
-      tags: ['React', 'TypeScript', 'Firebase'] as string[],
-      github: 'https://github.com/yourusername/task-manager',
-      demo: 'https://your-task-manager.vercel.app',
+      tags: [
+        'Next.js',
+        'TypeScript',
+        'Firebase Authentication',
+        'Firestore',
+        'Tailwind CSS',
+        'shadcn/ui',
+      ] as string[],
+      github: 'https://github.com/Chihiro-Kimura/tasky',
+      demo: 'https://tasky-one-rho.vercel.app/',
     },
     {
-      title: 'SNSアプリ',
-      description: 'Node.js と MongoDB を使用したSNSプラットフォーム',
+      title: 'SNSアプリ (開発予定)',
+      description:
+        '※ このプロジェクトは現在企画段階です。\n' +
+        'Node.jsとMongoDBを使用したSNSプラットフォームを開発予定です。',
       image:
-        'https://images.unsplash.com/photo-1611162616305-c69b3fa7fbe0?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80',
-      tags: ['Node.js', 'MongoDB', 'Express'] as string[],
-      github: 'https://github.com/yourusername/sns-app',
-      demo: 'https://your-sns-app.vercel.app',
+        'https://images.unsplash.com/photo-1611162617474-5b21e879e113?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80',
+      tags: ['企画中'] as string[],
+      github: '#',
     },
     {
       title: 'Post Writer',
       description:
-        'Next.js App RouterとContentlayerを活用したブログプラットフォーム。マークダウン投稿、OAuth認証、Stripe決済など、モダンなブログ機能を実装しています。',
+        'Next.js App RouterとContentlayerを活用したブログプラットフォーム。マークダウン投稿、OAuth認証など、モダンなブログ機能を実装しています。',
       image:
         'https://images.unsplash.com/photo-1499750310107-5fef28a66643?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80',
       tags: [
@@ -111,11 +116,10 @@ export const siteConfig: SiteConfig = {
         'Prisma',
         'PostgreSQL',
         'Supabase',
-        'Stripe',
         'NextAuth.js',
         'TailwindCSS',
       ] as string[],
-      github: 'https://github.com/yourusername/blog-app',
+      github: 'https://github.com/Chihiro-Kimura/post-writer-webapp',
       demo: 'https://post-writer-webapp-ten.vercel.app/',
     },
   ] as Project[],
