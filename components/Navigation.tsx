@@ -28,7 +28,8 @@ export default function Navigation() {
     >
       <nav className="container mx-auto px-4">
         <div className="flex items-center justify-between h-16">
-          <a href="#" className="text-xl font-bold">
+          {/* ロゴを中央に配置するため flex-1 を追加 */}
+          <a href="#" className="text-xl font-bold flex-1">
             Portfolio
           </a>
 
@@ -45,19 +46,20 @@ export default function Navigation() {
             ))}
           </div>
 
-          {/* モバイルメニューボタン */}
-          <Button
-            variant="ghost"
-            size="icon"
-            className="md:hidden"
-            onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-          >
-            {isMobileMenuOpen ? (
-              <X className="h-6 w-6" />
-            ) : (
-              <Menu className="h-6 w-6" />
-            )}
-          </Button>
+          {/* モバイルメニューボタン（右端に固定されないように relative に） */}
+          <div className="md:hidden flex-1 flex justify-end">
+            <Button
+              variant="ghost"
+              size="icon"
+              onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+            >
+              {isMobileMenuOpen ? (
+                <X className="h-6 w-6" />
+              ) : (
+                <Menu className="h-6 w-6" />
+              )}
+            </Button>
+          </div>
         </div>
 
         {/* モバイルメニュー */}
@@ -66,7 +68,7 @@ export default function Navigation() {
             initial={{ opacity: 0, y: -20 }}
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -20 }}
-            className="md:hidden py-4"
+            className="md:hidden w-full py-4 text-center"
           >
             {siteConfig.navItems.map((item, index) => (
               <a
