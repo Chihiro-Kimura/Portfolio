@@ -26,63 +26,61 @@ export default function Navigation() {
         isScrolled ? 'bg-background/80 backdrop-blur-md shadow-sm' : ''
       }`}
     >
-      <div className="container mx-auto">
-        <nav className="px-4">
-          <div className="flex items-center justify-between h-16">
-            <a href="#" className="text-xl font-bold">
-              Portfolio
-            </a>
+      <nav className="container mx-auto px-4">
+        <div className="flex items-center justify-between h-16">
+          <a href="#" className="text-xl font-bold">
+            Portfolio
+          </a>
 
-            {/* デスクトップメニュー */}
-            <div className="hidden md:flex items-center space-x-8">
-              {siteConfig.navItems.map((item, index) => (
-                <a
-                  key={index}
-                  href={item.href}
-                  className="text-muted-foreground hover:text-foreground transition-colors"
-                >
-                  {item.name}
-                </a>
-              ))}
-            </div>
-
-            {/* モバイルメニューボタン */}
-            <Button
-              variant="ghost"
-              size="icon"
-              className="md:hidden"
-              onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-            >
-              {isMobileMenuOpen ? (
-                <X className="h-6 w-6" />
-              ) : (
-                <Menu className="h-6 w-6" />
-              )}
-            </Button>
+          {/* デスクトップメニュー */}
+          <div className="hidden md:flex items-center space-x-8">
+            {siteConfig.navItems.map((item, index) => (
+              <a
+                key={index}
+                href={item.href}
+                className="text-muted-foreground hover:text-foreground transition-colors"
+              >
+                {item.name}
+              </a>
+            ))}
           </div>
 
-          {/* モバイルメニュー */}
-          {isMobileMenuOpen && (
-            <motion.div
-              initial={{ opacity: 0, y: -20 }}
-              animate={{ opacity: 1, y: 0 }}
-              exit={{ opacity: 0, y: -20 }}
-              className="md:hidden py-4"
-            >
-              {siteConfig.navItems.map((item, index) => (
-                <a
-                  key={index}
-                  href={item.href}
-                  className="block py-2 text-muted-foreground hover:text-foreground transition-colors"
-                  onClick={() => setIsMobileMenuOpen(false)}
-                >
-                  {item.name}
-                </a>
-              ))}
-            </motion.div>
-          )}
-        </nav>
-      </div>
+          {/* モバイルメニューボタン */}
+          <Button
+            variant="ghost"
+            size="icon"
+            className="md:hidden"
+            onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+          >
+            {isMobileMenuOpen ? (
+              <X className="h-6 w-6" />
+            ) : (
+              <Menu className="h-6 w-6" />
+            )}
+          </Button>
+        </div>
+
+        {/* モバイルメニュー */}
+        {isMobileMenuOpen && (
+          <motion.div
+            initial={{ opacity: 0, y: -20 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: -20 }}
+            className="md:hidden py-4"
+          >
+            {siteConfig.navItems.map((item, index) => (
+              <a
+                key={index}
+                href={item.href}
+                className="block py-2 text-muted-foreground hover:text-foreground transition-colors"
+                onClick={() => setIsMobileMenuOpen(false)}
+              >
+                {item.name}
+              </a>
+            ))}
+          </motion.div>
+        )}
+      </nav>
     </motion.header>
   );
 }
