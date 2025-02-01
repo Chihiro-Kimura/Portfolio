@@ -26,8 +26,8 @@ export default function Navigation() {
         isScrolled ? 'bg-background/80 backdrop-blur-md shadow-sm' : ''
       }`}
     >
-      <nav className="container mx-auto px-4">
-        <div className="flex items-center justify-between h-16">
+      <nav className="container mx-auto">
+        <div className="flex items-center justify-between h-16 px-4">
           <a href="#" className="text-xl font-bold">
             Portfolio
           </a>
@@ -66,7 +66,7 @@ export default function Navigation() {
             initial={{ opacity: 0, y: -20 }}
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -20 }}
-            className="md:hidden py-4"
+            className="md:hidden px-4 py-4"
           >
             {siteConfig.navItems.map((item, index) => (
               <a
